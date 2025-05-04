@@ -49,6 +49,27 @@
   margin-top: 2rem;      /* ✅ Add this line */
   margin-bottom: 1rem;   /* Already present */
 }
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* space between fields */
+  max-width: 500px;
+  margin: 0 auto; /* center the form */
+}
+
+#contactForm input,
+#contactForm textarea,
+#contactForm button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#contactForm textarea {
+  min-height: 100px;
+  resize: vertical;
+}
 
     
     main {
