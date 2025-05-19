@@ -194,25 +194,23 @@
     <title>Application Form</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function() {
-            // Initialize EmailJS with your public key
-            emailjs.init("xebkDRQGH8kbGopRK");
-        })();
+    (function() {
+        emailjs.init("xebkDRQGH8kbGopRK");
+    })();
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Send the form data using EmailJS
-            emailjs.sendForm('service_6kz8p5s', 'template_uczo0qy', event.target)
-                .then(() => {
-                    document.getElementById("thankYouMessage").style.display = "block";
-                    document.getElementById("thankYouMessage").innerHTML = "Thank you for your submission! We will get back to you soon.";
-                    document.getElementById("contactForm").reset();
-                }, (error) => {
-                    console.error('FAILED...', error);
-                });
-        }
-    </script>
+    function handleSubmit(event) {
+        event.preventDefault();
+        
+        emailjs.sendForm('service_6kz8p5s', 'template_uczo0qy', event.target)
+            .then(() => {
+                document.getElementById("thankYouModal").style.display = "block";
+                document.getElementById("contactForm").reset();
+            }, (error) => {
+                console.error('FAILED...', error);
+            });
+    }
+</script>
+
 </head>
 <body>
     <div style="max-width: 500px; margin: 0 auto; padding: 20px;">
@@ -238,6 +236,37 @@
 
         <div id="thankYouMessage" style="display:none; margin-top: 20px; text-align: center; color: green; font-size: 18px;"></div>
     </div>
+
+    <!-- Modal Thank You Message -->
+<div id="thankYouModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:3000; overflow:auto;">
+  <div style="background:white; margin:50px auto; padding:30px; max-width:800px; border-radius:10px; position:relative; font-family:'Georgia', serif; color:#2e2c2b; line-height:1.6;">
+    <span onclick="document.getElementById('thankYouModal').style.display='none'" 
+          style="position:absolute; top:10px; right:20px; cursor:pointer; font-size:20px;">&times;</span>
+    
+    <h2>Thank you for your application.</h2>
+    <p>I’ve received it and will review it personally. You’ll hear back from me within 48 hours.</p>
+    <p>If it’s aligned, I’ll reach out to schedule a brief follow-up to make sure we’re both clear and ready to move forward.</p>
+
+    <h3>Here’s a reminder of what this four-month container includes:</h3>
+    <ul>
+      <li><strong>Session 1: Trauma Repair & Energetic Clearing</strong> — A deep, somatic, and integrative process to release stored emotional residue and reconnect with your body’s innate intelligence. You’ll receive a guided meditation to continue this every other day.</li>
+      <li><strong>Session 2: Strategic Visioning</strong> — Clarify your direction, align with your purpose, and map your next steps.</li>
+    </ul>
+
+    <p>On alternating weeks, you’ll complete a short prompt and receive a custom video response attuned to your process.</p>
+
+    <p>The rest of the sessions evolve with your journey—embodiment, spiritual insight, stillness—wherever the energy calls.</p>
+
+    <h3>Investment:</h3>
+    <p>This work is a commitment. The exchange is 15% of your monthly income per month, for four months. It’s not transactional—it’s energetic and relational.</p>
+
+    <p>If this is aligned, we’ll both feel it. I'm honored you’re considering this work.</p>
+
+    <p><em>With love,<br>light,<br>and laughter,<br>Nandi</em></p>
+  </div>
+</div>
+
+
 </body>
 
         
