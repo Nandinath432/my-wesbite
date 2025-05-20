@@ -4,6 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nandi Nāth - Yoga & Awakening</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("xebkDRQGH8kbGopRK");
+    })();
+
+    function handleNewsletterSubmit(event) {
+  event.preventDefault();
+  console.log("Submitting newsletter form...");
+
+  emailjs.sendForm('service_6kz8p5s', 'template_e1cfldw', event.target)
+    .then(() => {
+      alert("🎉 You’ve been subscribed to the newsletter!");
+      event.target.reset();
+    }, (error) => {
+      console.error('Newsletter submission failed:', error); // 🔍 log real error
+      alert("There was an error. Please try again.");
+    });
+}
+
+
+  </script>
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -48,18 +71,17 @@
       padding-top: 80px; /* Push image down to avoid being hidden under nav */
     }
     header {
-      background: #6b5b95; /* Purple background for header */
+      background: #6b5b95;
       color: white;
       text-align: center;
       padding: 4rem 0;
       position: relative;
     }
-  header h1 {
-  font-size: 2.5rem;
-  margin-top: 2rem;      /* ✅ Add this line */
-  margin-bottom: 1rem;   /* Already present */
-}
-
+    header h1 {
+      font-size: 2.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
     header p {
       font-size: 1.2rem;
       margin-top: 1rem;
@@ -120,6 +142,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="top-buffer">
     <img src="images/index.jpg" alt="Top Image" class="top-image" />
@@ -189,11 +212,12 @@
       <a href="bio.html">📖 Read My Story</a>
     </div>
 
+    <!-- ✅ Newsletter Subscription Form with EmailJS -->
     <section class="newsletter">
       <h2>Eat, Sleep, and Shit Blissfully 🕊</h2>
       <p>Sign up for my weekly newsletter</p>
-      <form action="#" method="post">
-        <input type="email" placeholder="Your email address" required />
+      <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+        <input type="email" name="user_email" placeholder="Your email address" required />
         <button type="submit">Sign Up</button>
       </form>
     </section>
@@ -201,11 +225,11 @@
 
   <footer>
     <div class="socials">
-    <p>Connect Us On </p>
-      <a href="https://www.facebook.com/share/16DcyNrm1H/?mibextid=wwXIfr" target="blank">Facebook</a>
-      <a href="https://www.instagram.com/nandinath432?igsh=MWx4ZnhqNTF4YXhqcQ%3D%3D&utm_source=qr" target="blank">Instagram</a>
-      <a href="https://www.tiktok.com/@baba71392?_t=ZT-8vpeRz329iY&_r=1" target="blank" target="blank">TikTok</a>
-      <a href="https://youtube.com/@kali6199?si=3ez-ZFpMQA_FwMip" target="blank">YouTube</a>
+      <p>Connect Us On </p>
+      <a href="https://www.facebook.com/share/16DcyNrm1H/?mibextid=wwXIfr" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/nandinath432?igsh=MWx4ZnhqNTF4YXhqcQ%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@baba71392?_t=ZT-8vpeRz329iY&_r=1" target="_blank">TikTok</a>
+      <a href="https://youtube.com/@kali6199?si=3ez-ZFpMQA_FwMip" target="_blank">YouTube</a>
     </div>
     <p>&copy; <script>document.write(new Date().getFullYear())</script> Nandi Nāth. All rights reserved.</p>
   </footer>
