@@ -78,13 +78,13 @@
  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function() {
-      emailjs.init("q9RjaQMvDngWOBMh5"); // ✅ Replace with your public EmailJS key
+      emailjs.init("zpaSnJurDppNvlx4S"); // ✅ Replace with your public EmailJS key
     })();
 
     function sendEmail(e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_m57on29', 'template_g5en20i', e.target)
+      emailjs.sendForm('service_ez2kstc', 'template_hc6jmmq', e.target)
         .then(function(response) {
           console.log('SUCCESS!', response.status, response.text);
           e.target.reset();
