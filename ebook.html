@@ -47,15 +47,14 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .image-section {
-  margin: 20px 0;
-}
-.image-section img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
+      margin: 20px 0;
+    }
+    .image-section img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
     input, button {
       width: 100%;
       margin: 10px 0;
@@ -68,10 +67,6 @@
       color: white;
       cursor: pointer;
     }
-    #download-section {
-      display: none;
-      margin-top: 20px;
-    }
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -79,20 +74,28 @@
       color: #888;
     }
   </style>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
+
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
     (function() {
-      emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS public key
+      emailjs.init("q9RjaQMvDngWOBMh5"); // ✅ Replace with your public EmailJS key
     })();
 
     function sendEmail(e) {
       e.preventDefault();
 
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target)
+      emailjs.sendForm('service_m57on29', 'template_g5en20i', e.target)
         .then(function(response) {
           console.log('SUCCESS!', response.status, response.text);
-          document.getElementById('ebook-form').style.display = 'none';
-          document.getElementById('download-section').style.display = 'block';
+          e.target.reset();
+
+          // ✅ Automatically trigger download
+          const link = document.createElement("a");
+          link.href = "ebook/ebook1.pdf"; // ✅ Ensure this path is correct
+          link.download = "NandiNath-eBook.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
         }, function(error) {
           console.log('FAILED...', error);
           alert('Submission failed. Please try again.');
@@ -100,6 +103,7 @@
     }
   </script>
 </head>
+
 <body>
 
   <nav>
@@ -117,20 +121,13 @@
     <p>Get instant access to our free PDF guide.</p>
 
     <section class="image-section">
-      <img src="images/ebook.jpg" alt="E book Image" class="ebbok-image" />
+      <img src="images/ebook.jpg" alt="E book Image" />
     </section>
-    
 
     <form id="ebook-form" onsubmit="sendEmail(event)">
       <input type="email" name="user_email" placeholder="Your Email" required />
       <button type="submit">Submit & Download</button>
     </form>
-
-    <div id="download-section">
-      <h2>Thank You! 🎉</h2>
-      <p>Your eBook is ready to download:</p>
-      <a href="ebook/ebook1.pdf" download>Click here to download the PDF</a>
-    </div>
   </div>
 
   <footer>
