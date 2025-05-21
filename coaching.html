@@ -105,6 +105,11 @@
       border-left: 4px solid #6b5b95;
       margin: 2rem 0;
     }
+    .buttons {
+  text-align: center; /* Aligns inline-block children to the right */
+  margin-top: 20px;
+}
+
     .buttons a {
       display: inline-block;
       margin: 10px 10px 0 0;
@@ -119,7 +124,8 @@
       height: auto;
       border-radius: 8px;
       object-fit: cover;
-      margin-top: 30px;
+      display: block;         /* required to center with margin auto */
+      margin: 30px auto 0;
     }
     footer {
       text-align: center;
