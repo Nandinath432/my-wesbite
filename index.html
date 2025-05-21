@@ -59,17 +59,18 @@
       color: #333;
       font-size: 1rem;
     }
+      .top-buffer {
+      padding-top: 100px; /* Push image down to avoid being hidden under nav */
+    }
     .top-image {
       width: 50%;
-      height: 0.5%;
+      height: auto;
       display: block;
       object-fit: contain;
       transition: transform 0.3s ease;
-      margin: 100px auto;
+      margin: 0 auto;
     }
-    .top-buffer {
-      padding-top: 80px; /* Push image down to avoid being hidden under nav */
-    }
+  
     header {
       background: #6b5b95;
       color: white;
@@ -144,10 +145,6 @@
 </head>
 
 <body>
-  <div class="top-buffer">
-    <img src="images/index.jpg" alt="Top Image" class="top-image" />
-  </div>
-
   <nav>
     <div class="logo">Nandi Nāth</div>
     <div class="links">
@@ -157,6 +154,11 @@
       <a href="ebook.html">Free eBook</a>
     </div>
   </nav>
+
+  <div class="top-buffer">
+    <img src="images/index.jpg" alt="Top Image" class="top-image" />
+  </div>
+
 
   <header>
     <h1>I guide beings through the death of their suffering.</h1>
